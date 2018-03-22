@@ -1,41 +1,33 @@
-package dce.app;
-import java.util.concurrent.TimeUnit;
+package common;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
-import common.Base;
 
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-
-@Test 
-public class CreateApp {
-	
+@Test
+public class CreateOneApp {
 	/**
 	 * 
 	 * @author yangw
-	 * @version 1.00
+	 * @version 1.0.0
 	 * @project DCE
-	 */
-	
+	 */	
 	Base pubMeth=new Base();
 	WebDriver driver;
-	public void createApp() throws Exception {
-		
+	@Test
+		public WebDriver createOneApplication(WebDriver driver) throws Exception {
 		//driver = pubMeth.loginDce(driver);
 		driver = pubMeth.loginDceFromExel(driver);
-		
+	
 		pubMeth.rwFile("+++++++++++++++++", "+++++++++++++++++", "+++++++++++++++++");
 		//创建应用
 		//进入应用菜单
-		WebElement appCenter = driver.findElement(By.xpath("/html/body/div[2]/div[1]/nav/div[4]/div/div/span[1]"));//定位应用菜单
+		WebElement appCenter = driver.findElement(By.xpath("/html/body/div[2]/div[1]/nav/div[3]/div/div/span[1]"));//定位应用菜单
 		
 		//WebElement appcenter = driver.findElement(By.xpath("//div[@id='app']/div/nav/div[4]/div/div/span"));
 		appCenter.click();
+		System.out.println("app");
 		Thread.sleep(2000);
 		//点部署应用
 		WebElement createApp = driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/div[2]/div[1]/button[1]"));
@@ -73,26 +65,26 @@ public class CreateApp {
 		//检查并创建		
 		//WebElement checkcreate = driver.findElement(By.xpath("//button[@class='dao-btn blue']"));
 		WebElement checkCreate = driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/div[2]/div/div[2]/div[3]/div[2]/button[2]"));
-		
 		checkCreate.click();
 		Thread.sleep(5000);
+	
 		//进入应用菜单
-		WebElement checkApp = driver.findElement(By.xpath("/html/body/div[2]/div[1]/nav/div[4]/div/div/span[1]"));
+		WebElement checkApp = driver.findElement(By.xpath("/html/body/div[2]/div[1]/nav/div[3]/div/div/span[1]"));
 		checkApp.click();
 		Thread.sleep(5000);
 		
-		//判断应用是否存在
-		By locator = By.xpath("//a[@href='#/app-detail/autotest2048']");
-		boolean reValue = pubMeth.isElementExsit(driver, locator);
-		System.out.println(reValue);
-		//将结果写入log文件
-		pubMeth.writeLog("CreateApp ", reValue);
 		//刷新
 		WebElement refresh = driver.findElement(By.xpath("//button[@title='刷新']"));
 		refresh.click();
 		Thread.sleep(3000);
 		
-    //    driver.quit();
+		//判断应用是否存在
+		By locator = By.xpath("//a[@href='#/app-detail/autotest2048']");
+		boolean reValue = pubMeth.isElementExsit(driver, locator);
+		System.out.println(reValue);
+		
+		//将结果写入log文件
+		pubMeth.writeLog("用例：CreateApp ", reValue);
+		return driver;
 	}
-
 }
