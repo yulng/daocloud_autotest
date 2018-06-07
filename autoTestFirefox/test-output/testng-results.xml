@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="53785" started-at="2018-05-17T09:18:03Z" finished-at="2018-05-17T09:18:57Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="53785" started-at="2018-05-17T09:18:03Z" finished-at="2018-05-17T09:18:57Z">
+      <class name="dce.app.CreateTomcat">
+        <test-method status="PASS" signature="createTomcatApp()[pri:0, instance:dce.app.CreateTomcat@544fe44c]" name="createTomcatApp" duration-ms="53743" started-at="2018-05-17T17:18:03Z" finished-at="2018-05-17T17:18:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTomcatApp -->
+      </class> <!-- dce.app.CreateTomcat -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

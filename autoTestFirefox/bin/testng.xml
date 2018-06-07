@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Suite1" parallel="classes" allow-return-values="true" preserve-order="true">
+ 
+
+	 <test name="Try1">
+	  <classes>  
+	   <class name="dce.service.ServiceHighCfgYamlString"/>
+	     <methods>
+	        <include name="serviceHigh" />     
+	     </methods>
+	  </classes> 
+	 </test> <!-- Test --> 
+	    
+</suite> <!-- Suite -->
